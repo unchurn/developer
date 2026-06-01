@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, Braces, Compass, Webhook, Workflow } from "lucide-react";
+import Link from "next/link";
 
 type FeatureCard = {
   title: string;
@@ -45,7 +45,9 @@ const defaultCards: FeatureCard[] = [
 ];
 
 /** FeatureCards routes developers to the right documentation track. */
-export default function FeatureCards({ cards = defaultCards }: FeatureCardsProps) {
+export default function FeatureCards({
+  cards = defaultCards,
+}: FeatureCardsProps) {
   return (
     <section className="py-12 md:py-20">
       <div className="mb-7">
@@ -75,7 +77,9 @@ export default function FeatureCards({ cards = defaultCards }: FeatureCardsProps
                   </h3>
                   <ArrowRight className="size-4 shrink-0 text-fd-muted-foreground transition group-hover:translate-x-0.5 group-hover:text-fd-foreground" />
                 </div>
-                <p className="text-sm leading-6 text-fd-muted-foreground">{card.description}</p>
+                <p className="text-sm leading-6 text-fd-muted-foreground">
+                  {card.description}
+                </p>
               </div>
             </Link>
           );

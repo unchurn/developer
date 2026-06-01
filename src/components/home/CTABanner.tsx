@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { URLs } from "@/lib/shared";
 
 type CTABannerProps = {
@@ -8,7 +8,10 @@ type CTABannerProps = {
 };
 
 /** CTABanner closes the page with a direct path into implementation. */
-export default function CTABanner({ docsHref = "/docs/overview", statusHref = URLs.status }: CTABannerProps) {
+export default function CTABanner({
+  docsHref = "/docs/overview",
+  statusHref = URLs.status,
+}: CTABannerProps) {
   return (
     <section className="py-12 pb-16 md:py-20 md:pb-24">
       <div className="rounded-2xl border border-fd-border bg-fd-card/60 p-5 md:p-8">

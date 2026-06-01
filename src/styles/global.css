@@ -3,10 +3,12 @@
 @import "fumadocs-ui/css/preset.css";
 
 html {
-    scrollbar-gutter: stable;
+  scrollbar-gutter: stable;
 }
 
 html > body[data-scroll-locked] {
-    margin-right: 0px !important;
-    --removed-body-scroll-bar-size: 0px !important;
+  /* biome-ignore lint/complexity/noImportantStyles: Required to override scroll lock inline styles. */
+  margin-right: 0px !important;
+  /* biome-ignore lint/complexity/noImportantStyles: Required to override removed body scrollbar size. */
+  --removed-body-scroll-bar-size: 0px !important;
 }

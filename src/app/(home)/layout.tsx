@@ -5,9 +5,9 @@ import {
   NavbarMenuLink,
   NavbarMenuTrigger,
 } from "fumadocs-ui/layouts/home/navbar";
+import type { ReactNode } from "react";
 import { baseOptions } from "@/lib/layout.shared";
 import { URLs } from "@/lib/shared";
-import type { ReactNode } from "react";
 
 const docsLinks = [
   {
