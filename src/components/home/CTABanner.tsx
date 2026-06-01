@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { URLs } from "@/lib/shared";
 
 type CTABannerProps = {
@@ -25,19 +26,22 @@ export default function CTABanner({
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Link
-              href={docsHref}
-              className="inline-flex h-10 items-center gap-2 rounded-full bg-fd-foreground px-4 text-sm font-semibold text-fd-background transition hover:bg-fd-foreground/90"
+            <Button
+              nativeButton={false}
+              render={<Link href={docsHref} />}
+              className="gap-2"
             >
               Open docs
               <ArrowRight className="size-4" />
-            </Link>
-            <Link
-              href={statusHref}
-              className="inline-flex h-10 items-center rounded-full border border-fd-border px-4 text-sm font-semibold text-fd-foreground transition hover:bg-fd-accent"
+            </Button>
+            <Button
+              nativeButton={false}
+              render={<Link href={statusHref} />}
+              variant="ghost"
+              className="border-fd-border text-fd-foreground"
             >
               System status
-            </Link>
+            </Button>
           </div>
         </div>
       </div>
