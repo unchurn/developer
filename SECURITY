@@ -1,0 +1,166 @@
+# Security Policy
+
+Unchurn takes the security of its developer-facing infrastructure seriously.
+
+This repository is public-facing and may include documentation, examples, routes, generated metadata, Open Graph images, search output, and integration guidance. Please report vulnerabilities responsibly.
+
+## Supported Scope
+
+Security reports for this repository should focus on issues that affect the Unchurn Developer Portal, including:
+
+* Exposure of secrets, tokens, credentials, or private URLs.
+* Public documentation that reveals sensitive internal implementation details.
+* Cross-site scripting or injection risks in rendered documentation pages.
+* Unsafe handling of generated Markdown, MDX, search, or LLM-friendly routes.
+* Open redirect or unsafe external-link behavior.
+* Dependency vulnerabilities with a practical impact on the deployed portal.
+* Misconfigured robots, sitemap, Open Graph images, or public metadata that exposes private content.
+* Public routes that accidentally expose private, internal, or unreleased information.
+* Build or generation behavior that publishes content that should remain private.
+
+## Out of Scope
+
+The following are generally out of scope:
+
+* Spam or social engineering.
+* Denial-of-service testing without prior written approval.
+* Reports from automated scanners without a clear exploit path or practical impact.
+* Vulnerabilities in third-party services unless they directly affect this repository’s deployed portal.
+* Physical attacks or attacks against employees.
+* Issues that require access to private systems without authorization.
+* Theoretical vulnerabilities without a realistic attack scenario.
+* Missing security headers that do not create a practical risk for this repository.
+
+## How to Report a Vulnerability
+
+Do not open a public GitHub issue for security vulnerabilities.
+
+Preferred reporting method:
+
+1. Use GitHub Private Vulnerability Reporting if it is enabled for this repository.
+2. If private reporting is not available, contact the Unchurn maintainers privately through the approved security contact for the organization.
+
+When reporting, include:
+
+* A clear description of the issue.
+* The affected route, file, dependency, configuration, or generated output.
+* Steps to reproduce.
+* Expected impact.
+* Screenshots, logs, or proof of concept when safe to share.
+* Whether the issue is already public.
+* Any suggested remediation, if available.
+
+Please do not include customer data, secrets, tokens, credentials, or destructive exploit payloads in the report.
+
+## Response Expectations
+
+After a report is received, maintainers should aim to:
+
+* Acknowledge receipt within 3 business days.
+* Triage severity and impact.
+* Request additional details if needed.
+* Prepare a fix privately when appropriate.
+* Rotate exposed secrets immediately if any credential exposure is confirmed.
+* Publish remediation notes once the issue is resolved, if disclosure is safe.
+
+Response timelines may vary depending on severity, complexity, affected systems, and maintainer availability.
+
+## Coordinated Disclosure
+
+Please give Unchurn reasonable time to investigate and remediate the issue before public disclosure.
+
+Do not publicly disclose vulnerability details, proof of concept code, affected routes, or exploit steps until the issue has been reviewed and resolved.
+
+## Safe Harbor
+
+Unchurn will not pursue legal action against good-faith security research that:
+
+* Avoids data destruction or service disruption.
+* Avoids accessing, modifying, or exfiltrating private data.
+* Reports the issue privately and promptly.
+* Gives Unchurn reasonable time to remediate before public disclosure.
+* Stays within the supported scope of this policy.
+
+This safe harbor does not apply to:
+
+* Extortion.
+* Social engineering.
+* Physical attacks.
+* Persistence.
+* Malware.
+* Data theft.
+* Attacks against employees.
+* Attacks against third-party systems.
+* Denial-of-service testing without prior written approval.
+
+## Maintainer Handling Checklist
+
+For maintainers triaging a report:
+
+* Confirm whether the affected content is public or private.
+* Confirm whether the issue affects this repository, the deployed portal, or another Unchurn system.
+* Check whether a secret, token, credential, or private URL was exposed.
+* Rotate exposed secrets immediately if needed.
+* Avoid discussing vulnerability details in public issues, public pull requests, or public discussions before remediation.
+* Use a private branch, private fork, or private security advisory for sensitive fixes.
+* Add a regression test or validation step when possible.
+* Review related documentation routes, generated `.source` output, LLM-friendly routes, search output, metadata, sitemap, robots, and Open Graph generation for similar exposure.
+* Document the remediation privately before publishing any public notes.
+
+## Security Hygiene for This Repository
+
+Maintainers should keep the following enabled in GitHub:
+
+* Branch protection for `main`.
+* Pull requests required before merging.
+* At least 1 required approval.
+* Dismiss stale approvals when new commits are pushed.
+* Required CI checks.
+* Conversation resolution before merging.
+* Linear history when squash or rebase merging is used.
+* Force pushes disabled.
+* Branch deletion disabled.
+* Dependabot alerts.
+* Dependabot security updates.
+* Secret scanning.
+* Push protection.
+* CodeQL or equivalent code scanning.
+* Private vulnerability reporting, if available for the organization.
+
+## Security Expectations for Contributions
+
+Contributors must not commit:
+
+* API keys.
+* Access tokens.
+* `.env` files.
+* Private credentials.
+* Customer data.
+* Internal incident details.
+* Private infrastructure details.
+* Unreleased vulnerability details.
+* Private URLs that should not be public.
+* Generated files that expose private content.
+
+If a secret is accidentally committed:
+
+1. Stop pushing immediately.
+2. Notify a maintainer privately.
+3. Rotate the secret before attempting cleanup.
+4. Do not open a public issue with the secret value.
+5. Do not mention the secret value in commits, pull requests, issues, or discussions.
+
+## Public Documentation Safety
+
+Before publishing documentation changes, verify that the content does not expose:
+
+* Internal-only endpoints.
+* Private architecture details.
+* Internal service names that should not be public.
+* Credentials, tokens, keys, or example values that look real.
+* Customer names or customer-specific data.
+* Unreleased security behavior.
+* Internal incident response details.
+* Private infrastructure or deployment details.
+
+Public documentation should be useful for developers without exposing sensitive implementation details.
