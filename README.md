@@ -1,45 +1,104 @@
-# .
+<p align="center">
+  <img src="./unchurn.png" alt="Unchurn developer portal" width="720" />
+</p>
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+# Unchurn Developer Portal
 
-Run development server:
+This repository powers the Unchurn developer portal: the public landing page, documentation, search, LLM-friendly routes, Open Graph images, sitemap, and Fumadocs content source.
+
+Unchurn is developer-first infrastructure. The portal is designed to explain one workflow clearly: understand the platform, integrate through REST APIs or webhooks from any stack, and use SDKs where they make sense.
+
+## Tech Stack
+
+- Next.js App Router
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Fumadocs UI and Fumadocs MDX
+- Bun for dependency management
+- Biome for linting and formatting
+
+## Getting Started
+
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
+bun install
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Run the development server:
 
-## Explore
+```bash
+bun run dev
+```
 
-In the project, you can see:
+Open http://localhost:3000.
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
+## Scripts
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+```bash
+bun run dev          # Start the local Next.js dev server
+bun run build        # Build the production app
+bun run start        # Start the production server
+bun run types:check  # Generate Fumadocs/Next types and run TypeScript
+bun run lint         # Run Biome checks
+bun run format       # Format with Biome
+```
 
-### Fumadocs MDX
+## Project Structure
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+| Path | Purpose |
+| --- | --- |
+| `src/app/(home)` | Developer landing page route group. |
+| `src/components/home` | Composable landing page sections. |
+| `src/app/docs` | Fumadocs documentation routes. |
+| `content/docs` | MDX documentation content and root-folder metadata. |
+| `src/app/api/search/route.ts` | Fumadocs search endpoint. |
+| `src/app/llms.txt` | LLM index route. |
+| `src/app/llms-full.txt` | Full LLM text route. |
+| `src/app/llms.mdx/docs` | Per-page markdown route for LLM tools. |
+| `src/app/og/docs` | Dynamic Open Graph image route. |
+| `src/lib/source.ts` | Fumadocs source loader. |
+| `src/lib/layout.shared.tsx` | Shared layout options for Fumadocs layouts. |
+| `source.config.ts` | Fumadocs MDX collection configuration. |
+| `src/styles/global.css` | Global Tailwind/Fumadocs styles. |
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+## Documentation Content
 
-## Learn More
+Documentation lives in `content/docs` and is organized by Fumadocs root folders:
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
+- `overview`
+- `guides`
+- `webhooks`
+- `api-reference`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.dev) - learn about Fumadocs
+The current `content/docs` content is starter material generated with AI. Treat it as scaffolding, not final product documentation. It is expected to change as the real Unchurn API, webhook events, SDKs, and integration guides are written.
+
+Do not edit generated `.source` files manually. They are created by Fumadocs during install/type generation.
+
+## Validation Before Shipping
+
+At minimum, run:
+
+```bash
+bun run types:check
+```
+
+For code or styling changes, also run:
+
+```bash
+bun run lint
+bun run build
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the development workflow, pull request rules, repository settings, and security expectations.
+
+## Security
+
+Do not open public issues for vulnerabilities. See [SECURITY.md](./SECURITY.md) for the responsible disclosure process.
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
