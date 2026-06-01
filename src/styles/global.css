@@ -6,6 +6,10 @@ html {
   scrollbar-gutter: stable;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 html > body[data-scroll-locked] {
   /* biome-ignore lint/complexity/noImportantStyles: Required to override scroll lock inline styles. */
   margin-right: 0px !important;

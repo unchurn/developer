@@ -65,7 +65,7 @@ export default function FeatureCards({
             <Link
               key={card.href}
               href={card.href}
-              className="group flex min-h-[250px] flex-col rounded-xl border border-fd-border bg-fd-card/55 transition-colors hover:border-fd-muted-foreground/45 hover:bg-fd-card/80"
+              className="group flex min-h-62.5 flex-col rounded-xl border border-fd-border bg-fd-card/55 transition-colors hover:border-fd-muted-foreground/45 hover:bg-fd-card/80"
             >
               <div className="flex min-h-24 items-start border-b border-fd-border p-5">
                 <Icon className="size-5 text-fd-foreground/85" />
