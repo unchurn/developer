@@ -158,15 +158,16 @@ Recommended PR checklist:
 
 ## Review Requirements
 
-Pull requests targeting `main` require:
+Pull requests targeting `main` should be reviewed by the repository owner or a member of the Unchurn team before merge.
 
-* At least 1 approval.
+GitHub's formal required-approval setting is not mandatory for this repository at this time.
+
+Still expected before merge:
+
+* Team review by owner or maintainers.
 * All required checks passing.
-* All review conversations resolved.
 * No unresolved security concerns.
 * No direct push to `main`.
-
-Approvals may be dismissed when new commits are pushed.
 
 If a pull request changes security-sensitive content, dependencies, generated routes, metadata, or public documentation about authentication, API keys, webhooks, or integrations, reviewers should pay extra attention to what becomes publicly visible.
 
@@ -320,9 +321,6 @@ The `main` branch must be protected.
 Required:
 
 * Pull request before merging.
-* At least 1 approval.
-* Dismiss stale approvals when new commits are pushed.
-* Require conversation resolution before merging.
 * Require status checks before merging:
 
   * `types:check`
@@ -335,6 +333,9 @@ Required:
 
 Not currently required:
 
+* Required approvals in GitHub branch protection.
+* Dismiss stale approvals.
+* Required conversation resolution in GitHub branch protection.
 * Signed commits.
 * Merge queue.
 * Required deployments before merging.

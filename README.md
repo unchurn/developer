@@ -93,11 +93,11 @@ bun run build
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for the development workflow, pull request rules, repository settings, and security expectations.
+See [CONTRIBUTING](./CONTRIBUTING.md) for the development workflow, pull request rules, repository settings, and security expectations.
 
 ## Security
 
-Do not open public issues for vulnerabilities. See [SECURITY.md](./SECURITY.md) for the responsible disclosure process.
+Do not open public issues for vulnerabilities. See [SECURITY](./SECURITY) for the responsible disclosure process.
 
 ## License
 
