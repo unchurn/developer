@@ -3,7 +3,9 @@ import { gitConfig } from "@/lib/shared";
 import CTABanner from "./CTABanner";
 import FeatureCards from "./FeatureCards";
 import HeroSection from "./HeroSection";
+import HomeFooter from "./HomeFooter";
 import LanguageBadges from "./LanguageBadges";
+import SectionSeparator from "./SectionSeparator";
 
 const sans = Geist({ subsets: ["latin"], variable: "--font-home-sans" });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-home-mono" });
@@ -17,9 +19,14 @@ export default function DeveloperHome() {
     >
       <div className="mx-auto w-full max-w-275 px-5 md:px-8">
         <HeroSection githubHref={githubHref} />
+        <SectionSeparator />
         <FeatureCards />
+        <SectionSeparator />
         <LanguageBadges />
+        <SectionSeparator />
         <CTABanner />
+        <SectionSeparator />
+        <HomeFooter />
       </div>
     </main>
   );

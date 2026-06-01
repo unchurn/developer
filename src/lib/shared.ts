@@ -13,6 +13,9 @@ export const gitConfig = {
 export const URLs = {
   site: "https://developer.unchurn.online",
   status: "https://status.unchurn.online",
+  terms: "https://unchurn.online/terms",
+  privacy: "https://unchurn.online/privacy",
+  dataProcessing: "https://unchurn.online/data-processing",
   discord: "https://discord.unchurn.online",
   x: "https://x.com/UnchurnHQ",
 } as const;
