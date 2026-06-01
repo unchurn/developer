@@ -202,7 +202,7 @@ const RetroEffect = forwardRef<
 
 RetroEffect.displayName = "RetroEffect";
 
-interface WaveUniforms {
+interface WaveUniforms extends Record<string, THREE.IUniform> {
   time: THREE.Uniform<number>;
   resolution: THREE.Uniform<THREE.Vector2>;
   waveSpeed: THREE.Uniform<number>;
