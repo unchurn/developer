@@ -141,9 +141,15 @@ void mainImage(in vec4 inputColor, in vec2 uv, out vec4 outputColor) {
 `;
 
 class RetroEffectImpl extends Effect {
-  public uniforms: Map<string, THREE.Uniform<any>>;
+  public uniforms: Map<
+    "colorNum" | "pixelSize" | "ditherBias",
+    THREE.Uniform<number>
+  >;
   constructor() {
-    const uniforms = new Map<string, THREE.Uniform<any>>([
+    const uniforms = new Map<
+      "colorNum" | "pixelSize" | "ditherBias",
+      THREE.Uniform<number>
+    >([
       ["colorNum", new THREE.Uniform(4.0)],
       ["pixelSize", new THREE.Uniform(2.0)],
       ["ditherBias", new THREE.Uniform(0.2)],
@@ -151,23 +157,30 @@ class RetroEffectImpl extends Effect {
     super("RetroEffect", ditherFragmentShader, { uniforms });
     this.uniforms = uniforms;
   }
+
+  private getUniform(key: "colorNum" | "pixelSize" | "ditherBias") {
+    const uniform = this.uniforms.get(key);
+    if (!uniform) throw new Error(`Missing uniform: ${key}`);
+    return uniform;
+  }
+
   set colorNum(value: number) {
-    this.uniforms.get("colorNum")!.value = value;
+    this.getUniform("colorNum").value = value;
   }
   get colorNum(): number {
-    return this.uniforms.get("colorNum")!.value;
+    return this.getUniform("colorNum").value;
   }
   set pixelSize(value: number) {
-    this.uniforms.get("pixelSize")!.value = value;
+    this.getUniform("pixelSize").value = value;
   }
   get pixelSize(): number {
-    return this.uniforms.get("pixelSize")!.value;
+    return this.getUniform("pixelSize").value;
   }
   set ditherBias(value: number) {
-    this.uniforms.get("ditherBias")!.value = value;
+    this.getUniform("ditherBias").value = value;
   }
   get ditherBias(): number {
-    return this.uniforms.get("ditherBias")!.value;
+    return this.getUniform("ditherBias").value;
   }
 }
 
@@ -190,7 +203,6 @@ const RetroEffect = forwardRef<
 RetroEffect.displayName = "RetroEffect";
 
 interface WaveUniforms {
-  [key: string]: THREE.Uniform<any>;
   time: THREE.Uniform<number>;
   resolution: THREE.Uniform<THREE.Vector2>;
   waveSpeed: THREE.Uniform<number>;
