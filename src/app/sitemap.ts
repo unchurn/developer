@@ -1,6 +1,6 @@
+import type { MetadataRoute } from "next";
 import { URLs } from "@/lib/shared";
 import { source } from "@/lib/source";
-import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const docsRoutes = source.generateParams().map(({ slug }) => ({

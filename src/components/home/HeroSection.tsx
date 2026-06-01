@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 type HeroSectionProps = {
   docsHref?: string;
@@ -7,14 +7,17 @@ type HeroSectionProps = {
 };
 
 const curlSnippet = [
-  'curl -X POST https://api.unchurn.online/v1/events \\',
+  "curl -X POST https://api.unchurn.online/v1/events \\",
   '  -H "Authorization: Bearer $UNCHURN_API_KEY" \\',
   '  -H "Content-Type: application/json" \\',
   '  -d \'{"event":"customer.updated","customer_id":"cus_123"}\'',
 ];
 
 /** HeroSection introduces Unchurn as a language-agnostic integration surface. */
-export default function HeroSection({ docsHref = "/docs/overview", githubHref }: HeroSectionProps) {
+export default function HeroSection({
+  docsHref = "/docs/overview",
+  githubHref,
+}: HeroSectionProps) {
   return (
     <section className="grid gap-10 py-12 md:py-20 lg:grid-cols-[minmax(0,1fr)_28rem] lg:items-center lg:gap-14">
       <div className="max-w-2xl">
@@ -25,7 +28,9 @@ export default function HeroSection({ docsHref = "/docs/overview", githubHref }:
           One API. Any language. Zero guessing.
         </h1>
         <p className="mt-5 max-w-xl text-pretty text-[0.9375rem] leading-7 text-fd-muted-foreground md:text-base">
-          Integrate Unchurn with REST APIs and webhook events from any framework. Use the TypeScript SDK when it fits, or bring your own runtime.
+          Integrate Unchurn with REST APIs and webhook events from any
+          framework. Use the TypeScript SDK when it fits, or bring your own
+          runtime.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link
@@ -59,7 +64,11 @@ export default function HeroSection({ docsHref = "/docs/overview", githubHref }:
                 <span className="select-none pe-4 text-fd-muted-foreground/50">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className={index === 0 ? "text-fd-foreground" : undefined}>{line}</span>
+                <span
+                  className={index === 0 ? "text-fd-foreground" : undefined}
+                >
+                  {line}
+                </span>
               </span>
             ))}
           </code>

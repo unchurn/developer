@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Language = {
   name: string;
   icon: string;
@@ -92,25 +94,28 @@ export default function LanguageBadges({
             <div className="flex size-11 items-center justify-center">
               {language.darkIcon ? (
                 <>
-                  <img
+                  <Image
                     src={language.icon}
                     alt=""
                     className="max-h-10 max-w-10 object-contain dark:hidden"
-                    loading="lazy"
+                    width={40}
+                    height={40}
                   />
-                  <img
+                  <Image
                     src={language.darkIcon}
                     alt=""
                     className="hidden max-h-10 max-w-10 object-contain invert dark:block"
-                    loading="lazy"
+                    width={40}
+                    height={40}
                   />
                 </>
               ) : (
-                <img
+                <Image
                   src={language.icon}
                   alt=""
                   className="max-h-10 max-w-10 object-contain"
-                  loading="lazy"
+                  width={40}
+                  height={40}
                 />
               )}
             </div>

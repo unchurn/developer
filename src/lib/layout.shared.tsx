@@ -1,5 +1,5 @@
-import { ActivityIcon, BookOpenIcon } from "lucide-react";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import { ActivityIcon, BookOpenIcon } from "lucide-react";
 import { appName, gitConfig, URLs } from "./shared";
 
 export function baseOptions(): BaseLayoutProps {
