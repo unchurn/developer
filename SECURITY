@@ -1,10 +1,10 @@
-# Security Policy
+SECURITY POLICY
 
 Unchurn takes the security of its developer-facing infrastructure seriously.
 
-This repository is public-facing and may include documentation, examples, routes, generated metadata, Open Graph images, search output, and integration guidance. Please report vulnerabilities responsibly.
+This repository is public-facing and may include documentation, examples, routes, generated metadata, Open Graph images, search output, and integration guidance. Report vulnerabilities responsibly.
 
-## Supported Scope
+SUPPORTED SCOPE
 
 Security reports for this repository should focus on issues that affect the Unchurn Developer Portal, including:
 
@@ -13,32 +13,32 @@ Security reports for this repository should focus on issues that affect the Unch
 * Cross-site scripting or injection risks in rendered documentation pages.
 * Unsafe handling of generated Markdown, MDX, search, or LLM-friendly routes.
 * Open redirect or unsafe external-link behavior.
-* Dependency vulnerabilities with a practical impact on the deployed portal.
-* Misconfigured robots, sitemap, Open Graph images, or public metadata that exposes private content.
+* Dependency vulnerabilities with practical impact on the deployed portal.
+* Misconfigured robots, sitemap, Open Graph images, or metadata that exposes private content.
 * Public routes that accidentally expose private, internal, or unreleased information.
 * Build or generation behavior that publishes content that should remain private.
 
-## Out of Scope
+OUT OF SCOPE
 
 The following are generally out of scope:
 
 * Spam or social engineering.
 * Denial-of-service testing without prior written approval.
 * Reports from automated scanners without a clear exploit path or practical impact.
-* Vulnerabilities in third-party services unless they directly affect this repository’s deployed portal.
+* Vulnerabilities in third-party services unless they directly affect this repository's deployed portal.
 * Physical attacks or attacks against employees.
 * Issues that require access to private systems without authorization.
 * Theoretical vulnerabilities without a realistic attack scenario.
 * Missing security headers that do not create a practical risk for this repository.
 
-## How to Report a Vulnerability
+HOW TO REPORT A VULNERABILITY
 
 Do not open a public GitHub issue for security vulnerabilities.
 
 Preferred reporting method:
 
 1. Use GitHub Private Vulnerability Reporting if it is enabled for this repository.
-2. If private reporting is not available, contact the Unchurn maintainers privately through the approved security contact for the organization.
+2. If private reporting is not available, contact Unchurn maintainers privately through the approved security contact for the organization.
 
 When reporting, include:
 
@@ -48,11 +48,11 @@ When reporting, include:
 * Expected impact.
 * Screenshots, logs, or proof of concept when safe to share.
 * Whether the issue is already public.
-* Any suggested remediation, if available.
+* Suggested remediation, if available.
 
-Please do not include customer data, secrets, tokens, credentials, or destructive exploit payloads in the report.
+Do not include customer data, secrets, tokens, credentials, or destructive payloads in the report.
 
-## Response Expectations
+RESPONSE EXPECTATIONS
 
 After a report is received, maintainers should aim to:
 
@@ -60,18 +60,18 @@ After a report is received, maintainers should aim to:
 * Triage severity and impact.
 * Request additional details if needed.
 * Prepare a fix privately when appropriate.
-* Rotate exposed secrets immediately if any credential exposure is confirmed.
-* Publish remediation notes once the issue is resolved, if disclosure is safe.
+* Rotate exposed secrets immediately if credential exposure is confirmed.
+* Publish remediation notes once resolved, if disclosure is safe.
 
-Response timelines may vary depending on severity, complexity, affected systems, and maintainer availability.
+Response timelines vary depending on severity, complexity, affected systems, and maintainer availability.
 
-## Coordinated Disclosure
+COORDINATED DISCLOSURE
 
-Please give Unchurn reasonable time to investigate and remediate the issue before public disclosure.
+Give Unchurn reasonable time to investigate and remediate the issue before public disclosure.
 
 Do not publicly disclose vulnerability details, proof of concept code, affected routes, or exploit steps until the issue has been reviewed and resolved.
 
-## Safe Harbor
+SAFE HARBOR
 
 Unchurn will not pursue legal action against good-faith security research that:
 
@@ -93,31 +93,27 @@ This safe harbor does not apply to:
 * Attacks against third-party systems.
 * Denial-of-service testing without prior written approval.
 
-## Maintainer Handling Checklist
+MAINTAINER HANDLING CHECKLIST
 
 For maintainers triaging a report:
 
-* Confirm whether the affected content is public or private.
+* Confirm whether affected content is public or private.
 * Confirm whether the issue affects this repository, the deployed portal, or another Unchurn system.
 * Check whether a secret, token, credential, or private URL was exposed.
 * Rotate exposed secrets immediately if needed.
-* Avoid discussing vulnerability details in public issues, public pull requests, or public discussions before remediation.
+* Avoid discussing vulnerability details in public issues, pull requests, or discussions before remediation.
 * Use a private branch, private fork, or private security advisory for sensitive fixes.
 * Add a regression test or validation step when possible.
 * Review related documentation routes, generated `.source` output, LLM-friendly routes, search output, metadata, sitemap, robots, and Open Graph generation for similar exposure.
-* Document the remediation privately before publishing any public notes.
+* Document remediation privately before publishing public notes.
 
-## Security Hygiene for This Repository
+SECURITY HYGIENE FOR THIS REPOSITORY
 
 Maintainers should keep the following enabled in GitHub:
 
 * Branch protection for `main`.
-* Pull requests required before merging.
-* At least 1 required approval.
-* Dismiss stale approvals when new commits are pushed.
+* Pull requests required before merge.
 * Required CI checks.
-* Conversation resolution before merging.
-* Linear history when squash or rebase merging is used.
 * Force pushes disabled.
 * Branch deletion disabled.
 * Dependabot alerts.
@@ -127,7 +123,7 @@ Maintainers should keep the following enabled in GitHub:
 * CodeQL or equivalent code scanning.
 * Private vulnerability reporting, if available for the organization.
 
-## Security Expectations for Contributions
+SECURITY EXPECTATIONS FOR CONTRIBUTIONS
 
 Contributors must not commit:
 
@@ -150,9 +146,9 @@ If a secret is accidentally committed:
 4. Do not open a public issue with the secret value.
 5. Do not mention the secret value in commits, pull requests, issues, or discussions.
 
-## Public Documentation Safety
+PUBLIC DOCUMENTATION SAFETY
 
-Before publishing documentation changes, verify that the content does not expose:
+Before publishing documentation changes, verify that content does not expose:
 
 * Internal-only endpoints.
 * Private architecture details.
