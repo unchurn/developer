@@ -38,9 +38,9 @@ export default function HeroSection({
             speed={1.02}
             scale={0.82}
           />
+          <div className="absolute inset-y-0 left-0 w-[44%] bg-linear-to-r from-fd-background via-fd-background/82 to-transparent" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-fd-background from-12% via-fd-background/44 via-42% to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-fd-background/30 via-transparent to-fd-background/30" />
+        <div className="absolute inset-0 bg-linear-to-b from-fd-background/24 via-transparent to-fd-background/24" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
@@ -49,7 +49,7 @@ export default function HeroSection({
             <p className="mb-5 inline-flex rounded-full border border-fd-border bg-fd-card px-3 py-1 text-xs font-medium text-fd-muted-foreground">
               Developer infrastructure for every stack
             </p>
-            <h1 className="text-balance text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.055em] text-fd-foreground">
+            <h1 className="text-balance text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.055em] text-(--home-heading-color)">
               One API. Any language.
               <br />
               Zero guessing.

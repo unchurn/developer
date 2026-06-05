@@ -21,7 +21,7 @@ export default function CTABanner({
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-fd-muted-foreground">
               Ready
             </p>
-            <h2 className="mt-2 max-w-2xl text-balance text-2xl font-semibold tracking-[-0.04em] text-fd-foreground md:text-3xl">
+            <h2 className="mt-2 max-w-2xl text-balance text-2xl font-semibold tracking-[-0.04em] text-[var(--home-heading-color)] md:text-3xl">
               Start with the overview, then wire your first integration.
             </h2>
           </div>
