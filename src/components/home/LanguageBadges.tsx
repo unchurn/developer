@@ -77,7 +77,7 @@ export default function LanguageBadges({
         <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-fd-muted-foreground">
           Language-Agnostic
         </p>
-        <h2 className="text-balance text-2xl font-semibold tracking-[-0.04em] text-fd-foreground md:text-3xl">
+        <h2 className="text-balance text-2xl font-semibold tracking-[-0.04em] text-[var(--home-heading-color)] md:text-3xl">
           Works with any language
         </h2>
         <p className="mt-3 text-[0.9375rem] leading-7 text-fd-muted-foreground">
@@ -120,7 +120,7 @@ export default function LanguageBadges({
               )}
             </div>
             <div>
-              <p className="text-sm font-semibold text-fd-foreground">
+              <p className="text-sm font-semibold text-[var(--home-heading-color)]">
                 {language.name}
               </p>
               <p className="mt-2 rounded-full border border-fd-border bg-fd-background px-2 py-0.5 text-[11px] font-medium text-fd-muted-foreground">
