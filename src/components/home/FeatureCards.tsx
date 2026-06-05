@@ -44,7 +44,6 @@ const defaultCards: FeatureCard[] = [
   },
 ];
 
-/** FeatureCards routes developers to the right documentation track. */
 export default function FeatureCards({
   cards = defaultCards,
 }: FeatureCardsProps) {
@@ -54,7 +53,7 @@ export default function FeatureCards({
         <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-fd-muted-foreground">
           Getting Started
         </p>
-        <h2 className="text-balance text-2xl font-semibold tracking-[-0.04em] text-fd-foreground md:text-3xl">
+        <h2 className="text-balance text-2xl font-semibold tracking-[-0.04em] text-[var(--home-heading-color)] md:text-3xl">
           Choose the fastest path into the docs
         </h2>
       </div>
@@ -72,7 +71,7 @@ export default function FeatureCards({
               </div>
               <div className="flex flex-1 flex-col p-5">
                 <div className="mb-3 flex items-center justify-between gap-3">
-                  <h3 className="font-semibold tracking-[-0.02em] text-fd-foreground">
+                  <h3 className="font-semibold tracking-[-0.02em] text-[var(--home-heading-color)]">
                     {card.title}
                   </h3>
                   <ArrowRight className="size-4 shrink-0 text-fd-muted-foreground transition group-hover:translate-x-0.5 group-hover:text-fd-foreground" />

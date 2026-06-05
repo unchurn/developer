@@ -10,6 +10,18 @@ body {
   overflow-x: hidden;
 }
 
+.home-surface {
+  --home-heading-color: color-mix(
+    in oklab,
+    var(--color-fd-foreground) 88%,
+    var(--color-fd-muted-foreground)
+  );
+}
+
+body {
+  overflow-x: hidden;
+}
+
 html > body[data-scroll-locked] {
   /* biome-ignore lint/complexity/noImportantStyles: Required to override scroll lock inline styles. */
   margin-right: 0px !important;

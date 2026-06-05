@@ -15,7 +15,7 @@ const githubHref = `https://github.com/${gitConfig.org}/${gitConfig.repo}`;
 export default function DeveloperHome() {
   return (
     <main
-      className={`${sans.variable} ${mono.variable} flex-1 bg-fd-background text-fd-foreground [font-family:var(--font-home-sans)]`}
+      className={`${sans.variable} ${mono.variable} home-surface flex-1 bg-fd-background text-fd-foreground [font-family:var(--font-home-sans)]`}
     >
       <div className="mx-auto w-full max-w-275 px-5 md:px-8">
         <HeroSection githubHref={githubHref} />
