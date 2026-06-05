@@ -3,19 +3,19 @@
 @import "fumadocs-ui/css/preset.css";
 
 html {
-    scrollbar-gutter: stable;
+  scrollbar-gutter: stable;
 }
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .home-surface {
-    --home-heading-color: color-mix(
-        in oklab,
-        var(--color-fd-foreground) 88%,
-        var(--color-fd-muted-foreground)
-    );
+  --home-heading-color: color-mix(
+    in oklab,
+    var(--color-fd-foreground) 88%,
+    var(--color-fd-muted-foreground)
+  );
 }
 
 body {
@@ -23,8 +23,8 @@ body {
 }
 
 html > body[data-scroll-locked] {
-    /* biome-ignore lint/complexity/noImportantStyles: Required to override scroll lock inline styles. */
-    margin-right: 0px !important;
-    /* biome-ignore lint/complexity/noImportantStyles: Required to override removed body scrollbar size. */
-    --removed-body-scroll-bar-size: 0px !important;
+  /* biome-ignore lint/complexity/noImportantStyles: Required to override scroll lock inline styles. */
+  margin-right: 0px !important;
+  /* biome-ignore lint/complexity/noImportantStyles: Required to override removed body scrollbar size. */
+  --removed-body-scroll-bar-size: 0px !important;
 }
