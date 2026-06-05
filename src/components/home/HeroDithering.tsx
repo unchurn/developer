@@ -34,16 +34,6 @@ float noise(vec2 p) {
   );
 }
 
-float fbm(vec2 p) {
-  float v = 0.0;
-  float amplitude = waveAmplitude;
-  for (int i = 0; i < 3; i++) {
-    v += noise(p * waveFrequency * (1.0 + float(i) * 0.5)) * amplitude;
-    amplitude *= 0.5;
-  }
-  return v;
-}
-
 const float bayer[16] = float[16](
   0.0, 8.0, 2.0, 10.0,
   12.0, 4.0, 14.0, 6.0,
@@ -52,11 +42,33 @@ const float bayer[16] = float[16](
 );
 
 void main() {
-  vec2 uv = vUv - 0.5;
+  vec2 uv = vUv * 2.0 - 1.0;
   uv.x *= resolution.x / resolution.y;
 
-  float f = fbm(uv * 4.0 + time * waveSpeed) * 0.7 + 0.3;
-  vec3 col = mix(backgroundColor, waveColor, clamp(f, 0.0, 1.0));
+  vec2 portalUv = vec2(uv.x * 1.02, uv.y * 0.66);
+  float portal = length(portalUv);
+  float angle = atan(portalUv.y, portalUv.x);
+  float spin = time * waveSpeed * 5.0;
+
+  float outerMask = 1.0 - smoothstep(0.88, 0.98, portal);
+  float innerMask = smoothstep(0.22, 0.34, portal);
+  float portalMask = outerMask * innerMask;
+
+  float spiral = 0.5 + 0.5 * sin(angle * 5.0 - portal * 17.0 - spin);
+  float blades = smoothstep(0.43, 0.72, spiral);
+
+  float secondary = 0.5 + 0.5 * sin(angle * 10.0 + portal * 24.0 - spin * 1.35);
+  float ridges = mix(0.82, 1.18, secondary);
+
+  float grain = noise(vec2(angle * waveFrequency * 1.8, portal * 12.0 - spin)) * waveAmplitude;
+  float portalValue = portalMask * mix(0.08, 1.0, blades) * ridges;
+  portalValue *= 0.92 + grain;
+
+  float innerGlow = smoothstep(0.34, 0.52, portal) * (1.0 - smoothstep(0.52, 0.72, portal));
+  portalValue += innerGlow * 0.18;
+  portalValue = clamp(portalValue, 0.0, 1.0);
+
+  vec3 col = mix(backgroundColor, waveColor, portalValue);
 
   vec2 pixelCoord = floor(gl_FragCoord.xy / pixelSize);
   int idx = int(mod(pixelCoord.x, 4.0)) + int(mod(pixelCoord.y, 4.0)) * 4;
@@ -155,17 +167,17 @@ interface HeroDitheringProps {
 }
 
 export function HeroDithering({
-  waveColor = [0.26, 0.35, 0.48],
-  backgroundColor = [0.82, 0.86, 0.92],
+  waveColor = [0.7, 0.5, 1.0],
+  backgroundColor = [0.03, 0.03, 0.04],
   colorNum = 4,
-  ditherBias = 0.1,
-  waveAmplitude = 0.34,
-  waveFrequency = 3,
-  waveSpeed = 0.05,
+  ditherBias = 0.06,
+  waveAmplitude = 0.22,
+  waveFrequency = 3.2,
+  waveSpeed = 0.12,
   className,
 }: HeroDitheringProps) {
   return (
-    <div className={className}>
+    <div className={`${className ?? ""} overflow-hidden bg-black`}>
       <Canvas
         className="h-full w-full"
         camera={{ position: [0, 0, 6] }}
